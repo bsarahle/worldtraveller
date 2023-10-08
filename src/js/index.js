@@ -1,4 +1,4 @@
-function toggleForm(formType) {
+export const toggleForm = (formType) => {
     const loginForm = document.getElementById("login-form");
     const signupForm = document.getElementById("signup-form");
 
@@ -11,7 +11,7 @@ function toggleForm(formType) {
     }
 }
 
-function login() {
+export const login = () => {
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
 
@@ -20,7 +20,7 @@ function login() {
     alert(`Logged in with username: ${username}`);
 }
 
-function signup() {
+export const signup = () => {
     const username = document.getElementById("signup-username").value;
     const password = document.getElementById("signup-password").value;
 
