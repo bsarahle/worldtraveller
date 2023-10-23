@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'worldtraveller'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2BB7CA82933743E2B2F02A500E70E60C }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
