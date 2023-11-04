@@ -18,7 +18,8 @@ variables:
   environmentName: 'worldtraveller'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  buildAgentPool: 'Build Agents'
+  buildAgentName: 'Windows-x86-node-6JMT'
 
 stages:
 - stage: Build
@@ -27,7 +28,9 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+      name: $(buildAgentPool)
+      demands:
+        - agent.name -equals $(buildAgentName)
 
     steps:
     - task: ArchiveFiles@2
@@ -51,7 +54,9 @@ stages:
     displayName: Deploy
     environment: $(environmentName)
     pool:
-      vmImage: $(vmImageName)
+      name: $(buildAgentPool)
+      demands:
+        - agent.name -equals $(buildAgentName)
     strategy:
       runOnce:
         deploy:
